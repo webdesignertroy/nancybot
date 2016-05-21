@@ -52,14 +52,20 @@ var sodasRes;
   });
 
 
-return robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res2) {
+return robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res) {
     var name, user, users;
-    name = res2.match[1].trim();
+    name = res.match[1].trim();
     users = robot.brain.usersForFuzzyName(name);
     if (users.length === 1) {
       user = users[0];
-      return res2.send(name + " is user - " + user);
+      return res.send(name + " is user - " + user);
     }
+  });
+
+  return robot.hear(/hi robot/i, function(msg) {
+    var user;
+    user = robot.brain.usersForFuzzyName(msg.message.user.name);
+    return msg.send("" + (Util.inspect(user)));
   });
 
 
