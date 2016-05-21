@@ -3,21 +3,21 @@
     var sodasHad;
     var sodasRes;
 
-    /*switch(sodasHad){
+    switch(sodasHad){
       case 1:
-        sodasRes = "once";
+        sodasRes = "once.";
       break;
       case 2:
-        sodasRes = "twice";
+        sodasRes = "twice.";
       break;
       default:
-        sodasRes = sodasHad + " times";
+        sodasRes = sodasHad + " times.";
       break;
-    }*/
+    }
 
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
     if (sodasHad > 0) {
-      res.reply("We already played " + sodasHad + " times.");
+      res.reply("We already played " + sodasRes);
       return robot.brain.set('totalSodas', sodasHad + 1);
     } else {
       res.reply('Sure!');
