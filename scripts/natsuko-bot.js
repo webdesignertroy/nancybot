@@ -48,11 +48,6 @@ module.exports = function(robot) {
     robot.hear(/Howdy/, function(response) {
         return response.send('Another great day!');
     })
-}
-module.exports = function(robot) {
-    robot.hear(/These shoes/, function(response) {
-        return response.send('...are made for walkin');
-    })
 
 }
   
