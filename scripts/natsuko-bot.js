@@ -80,7 +80,7 @@ module.exports = function(robot) {
 
 module.exports = function(robot) {
     robot.hear(/lucky?/, function(response) {
-        return response.send response.random["Very lucky", "Good", "Oh well"];
+        return response.send('Yes, very lucky!');
     })
 
 }
