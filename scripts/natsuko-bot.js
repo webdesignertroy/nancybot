@@ -49,6 +49,12 @@ module.exports = function(robot) {
         return reponse.send('Another great day!');
     })
 }
+module.exports = function(robot) {
+    robot.hear(/These boots/, function(response) {
+        return response.send('...are made for walkin');
+    })
+
+}
   
 
 

@@ -24,7 +24,8 @@ var sodasHad;
 var sodasRes;
 
 //Play Day  
-  robot.respond(/do you want to play/i, function(res) {   
+//I'm modofying a bit for the sake of test 
+  robot.respond(/count/i, function(res) {   
 
     sodasHad = robot.brain.get('totalSodas') * 1 || 0; 
 
