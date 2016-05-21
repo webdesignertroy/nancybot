@@ -17,7 +17,8 @@
 
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
     if (sodasHad > 0) {
-      return res.reply("We already played " + sodasHad +" times.", sodasHad + 1);
+      res.reply("We already played " + sodasHad + " times.");
+      return robot.brain.set('totalSodas', sodasHad + 1);
     } else {
       res.reply('Sure!');
       return robot.brain.set('totalSodas', sodasHad + 1);
