@@ -77,7 +77,7 @@ module.exports = function(robot) {
 
 module.exports = function(robot) {
     robot.hear(/lucky?/i, function(response) {
-        return response.send response.random["大吉", "中吉", "小吉", "凶"];
+        return response.send response.random["Very lucky", "Good", "Oh well"];
     })
 
 }
