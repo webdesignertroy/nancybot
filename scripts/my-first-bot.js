@@ -11,13 +11,13 @@
         sodasRes = "twice";
       break;
       default:
-        sodaRes = sodasHad + " times";
+        sodasRes = sodasHad + " times";
       break;
     }
 
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
     if (sodasHad > 0) {
-      return res.reply("We already played " + sodaRes +".");
+      return res.reply("We already played " + sodasRes +".");
     } else {
       res.reply('Sure!');
       return robot.brain.set('totalSodas', sodasHad + 1);
