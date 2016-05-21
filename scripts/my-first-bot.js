@@ -52,13 +52,13 @@ var sodasRes;
   });
 
 
-return robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res) {
+return robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res2) {
     var name, user, users;
-    name = res.match[1].trim();
+    name = res2.match[1].trim();
     users = robot.brain.usersForFuzzyName(name);
     if (users.length === 1) {
       user = users[0];
-      return res.send(name + " is user - " + user);
+      return res2.send(name + " is user - " + user);
     }
   });
 
