@@ -13,13 +13,13 @@
       SodaRes = sodasHad + " times";
     }
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
-    if ( sodasHad > 2 ) {
+    if ( sodasHad > 3 ) {
       return res.reply("I played with you " + SodaRes + " today. Leave me alone!!!");
-    } else if ( sodasHad = 0 ){
+    } else if ( sodasHad = 1 ){
       res.reply('Sure! I haven\'t played with you today');
       return robot.brain.set('totalSodas', sodasHad + 1);      
     } else {
-      res.reply('I played with you " + SodaRes + " today.');
+      res.reply('I played with you ' + SodaRes + ' today.');
       return robot.brain.set('totalSodas', sodasHad + 1);
     }
   });
