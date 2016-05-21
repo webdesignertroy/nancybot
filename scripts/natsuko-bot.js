@@ -80,6 +80,17 @@ module.exports = function(robot) {
 
 module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
+        var feet = 5;
+        var inch = 3;
+        var lbs = 125;
+
+        // metric conversion 
+        var allInches = feet * 12 + inch
+
+        var weight = lbs * .45
+        var height = allInches * .025
+
+        var BMI = weight / (height * height)
         var BMI = 22.7;
         return response.send('Your BMI is' + BMI);
     })
