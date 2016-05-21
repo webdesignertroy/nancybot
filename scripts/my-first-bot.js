@@ -1,11 +1,25 @@
  module.exports = function(robot) { 
-  robot.respond(/have a soda/i, function(res) {
+  robot.respond(/do you want to play/i, function(res) {
     var sodasHad;
+    var sodaRes;
+    switch(sodasHad) {
+      case 1:
+        SodaRes = "once";
+      break;
+      case 2:
+        SodaRes = "twice" ;
+      break;
+      default:
+      SodaRes = sodasHad + " times";
+    }
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
-    if (sodasHad > 1) {
-      return res.reply("I'm too fizzy..");
+    if ( sodasHad > 2 ) {
+      return res.reply("I played with you " + SodaRes + " today. Leave me alone!!!");
+    } else if ( sodasHad = 0 ){
+      res.reply('Sure! I haven\'t played with you today');
+      return robot.brain.set('totalSodas', sodasHad + 1);      
     } else {
-      res.reply('Sure!');
+      res.reply('I played with you " + SodaRes + " today.');
       return robot.brain.set('totalSodas', sodasHad + 1);
     }
   });
