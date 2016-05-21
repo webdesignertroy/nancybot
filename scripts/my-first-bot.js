@@ -52,15 +52,9 @@ var sodasRes;
   });
 
 
-  robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res) {
-    var name, user, users;
-    name = res.match[1].trim();
-    users = robot.brain.usersForFuzzyName(name);
-    if (users.length === 1) {
-      user = users[0];
-      return res.send(name + " is user - " + user);
-    }
-  });
+  robot.respond /hi|hello/i, (msg) ->
+    msg.send "Howdy!"
+
 
 
 };
