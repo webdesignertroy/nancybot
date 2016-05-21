@@ -65,8 +65,7 @@ return robot.respond(/who is @?([\w .\-]+)\?*$/i, function(res) {
   return robot.hear(/hi robot/i, function(res) {
     var user;
     user = robot.brain.usersForFuzzyName(user.name);
-    return res.send("" + (Util.inspect(user)));
+    return res.reply('Object: ' + Util.inspect(user));
   });
-
 
 };
