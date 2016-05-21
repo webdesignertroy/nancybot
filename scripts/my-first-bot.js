@@ -20,7 +20,7 @@
       return res.reply("We already played " + sodasHad +" times.");
     } else {
       res.reply('Sure!');
-      return robot.brain.set('totalSodas', sodasHad + 1);
+      return robot.brain.set('totalSodas', sodasHad++);
     }
   });
 
