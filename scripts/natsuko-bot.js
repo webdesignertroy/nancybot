@@ -79,8 +79,8 @@ module.exports = function(robot) {
 */
 
 module.exports = function(robot) {
-    robot.hear(/lucky?/, function(response) {
-        return response.send('Yes, very lucky!');
+    robot.hear(/BMI?/, function(response) {
+        return response.send('Your BMI is');
     })
 
 }
