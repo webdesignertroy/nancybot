@@ -81,6 +81,12 @@ module.exports = function(robot) {
     })
 
 }
+module.exports = function(robot) {
+    robot.hear(/These shoes/, function(response) {
+        return response.send('...are made for walking');
+    })
+
+}
   
 
 
