@@ -1,3 +1,5 @@
+// JavaScript Document
+
  module.exports = function(robot) { 
 
 var allStudents = [
@@ -52,9 +54,6 @@ var sodasRes;
   });
 
 
-  robot.respond /hi|hello/i, (msg) ->
-    msg.send "Howdy!"
 
-//conflicts
 
 };
