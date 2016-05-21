@@ -44,9 +44,29 @@ module.exports = function(robot) {
 }
 */
 
+/*
+BMI Categories: 
+Underweight = <18.5
+Normal weight = 18.5–24.9 
+Overweight = 25–29.9 
+Obesity = BMI of 30 or greater
+
+5’3" and weighs 125 lbs
+
+125 X 0.45 = 56.25 kg (Multiply the weight in pounds by 0.45 (the metric conversion factor))
+63 X 0.025 = 1.575 m (Multiply the height in inches by 0.025 (the metric conversion factor))
+1.575 X 1.575 = 2.480625  <Square the answer from step 2>
+56.25 : 2.480625 = 22.7 <Divide the answer from step 1 by the answer from step 3>
+The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23.
+*/
 module.exports = function(robot) {
-    robot.hear(/Howdy/, function(response) {
-        return response.send('Another great day!');
+    robot.hear(/BMI?/, function(response) {
+
+        var weight = 56.25
+        var height = 1.575
+
+        var BMI = height * height / weight
+        return response.send(BMI);
     })
 
 }
