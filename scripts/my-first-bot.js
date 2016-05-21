@@ -2,7 +2,7 @@
   robot.respond(/have a soda/i, function(res) {
     var sodasHad;
     sodasHad = robot.brain.get('totalSodas') * 1 || 0;
-    if (sodasHad > 4) {
+    if (sodasHad > 1) {
       return res.reply("I'm too fizzy..");
     } else {
       res.reply('Sure!');
