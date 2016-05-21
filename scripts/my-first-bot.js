@@ -17,10 +17,10 @@
       return res.reply("I played with you " + SodaRes + " today. Leave me alone!!!");
     } else if ( sodasHad = 1 ){
       res.reply('Sure! I haven\'t played with you today');
-      return robot.brain.set('totalSodas', sodasHad + 1);      
+      return robot.brain.set('totalSodas', sodasHad += 1);      
     } else {
       res.reply('I played with you ' + SodaRes + ' today.');
-      return robot.brain.set('totalSodas', sodasHad + 1);
+      return robot.brain.set('totalSodas', sodasHad += 1);
     }
   });
 
