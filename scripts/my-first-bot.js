@@ -3,7 +3,7 @@
     var sodasHad;
     var sodasRes;
 
-    switch(){
+    switch(sodasHad){
       case 1:
         sodasRes = "once";
       break;
