@@ -80,7 +80,8 @@ module.exports = function(robot) {
 
 module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
-        return response.send('Your BMI is');
+        var BMI = 22.7;
+        return response.send('Your BMI is' + BMI);
     })
 
 }
