@@ -1,16 +1,15 @@
-robot.respond /have a soda/i, (res) ->
-  # Get number of sodas had (coerced to a number).
-  sodasHad = robot.brain.get('totalSodas') * 1 or 0
+robot.respond(/have a soda/i, function(res) {
+  var sodasHad;
+  sodasHad = robot.brain.get('totalSodas') * 1 || 0;
+  if (sodasHad > 4) {
+    return res.reply("I'm too fizzy..");
+  } else {
+    res.reply('Sure!');
+    return robot.brain.set('totalSodas', sodasHad + 1);
+  }
+});
 
-  if sodasHad > 2
-    res.reply "I'm too fizzy.."
-
-  else
-    res.reply 'Sure!'
-
-    robot.brain.set 'totalSodas', sodasHad+1
-robot.respond /sleep it off/i, (res) ->
-  robot.brain.set 'totalSodas', 0
-  msg.reply 'zzzzz'
-
-}
+robot.respond(/sleep it off/i, function(res) {
+  robot.brain.set('totalSodas', 0);
+  return msg.reply('zzzzz');
+});
