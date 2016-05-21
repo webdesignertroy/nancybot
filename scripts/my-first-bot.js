@@ -16,11 +16,11 @@ var allStudents = [
 {name: "jackreid", BMI: 0, H2O: 0},
 {name: "mcunningham78", BMI: 0, H2O: 0},
 {name: "raffikazanijan", BMI: 0, H2O: 0}
+];
+
 var sodasHad;
 var sodasRes;
 
-];
-  
 //Play Day  
   robot.respond(/do you want to play/i, function(res) {   
 
