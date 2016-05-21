@@ -59,6 +59,8 @@ Obesity = BMI of 30 or greater
 56.25 : 2.480625 = 22.7 <Divide the answer from step 1 by the answer from step 3>
 The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23.
 */
+
+/*
 module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
 
@@ -81,6 +83,7 @@ module.exports = function(robot) {
     })
 
 }
+*/
 module.exports = function(robot) {
     robot.hear(/These shoes/, function(response) {
         return response.send('...are made for walking');
