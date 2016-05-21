@@ -46,7 +46,7 @@ module.exports = function(robot) {
 
 module.exports = function(robot) {
     robot.hear(/Howdy/, function(response) {
-        return reponse.send('Another great day!');
+        return response.send('Another great day!');
     })
 }
 module.exports = function(robot) {
