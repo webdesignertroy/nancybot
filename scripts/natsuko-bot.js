@@ -79,7 +79,7 @@ module.exports = function(robot) {
 */
 
 module.exports = function(robot) {
-    robot.hear(/lucky?/i, function(response) {
+    robot.hear(/lucky?/, function(response) {
         return response.send('very lucky!');
     })
 
