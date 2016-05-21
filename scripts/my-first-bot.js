@@ -3,7 +3,9 @@
     var sodasHad;
     var sodasRes;
 
-    switch(sodasHad){
+    sodasHad = robot.brain.get('totalSodas') * 1 || 0; 
+     
+    switch (sodasHad) {
       case 1:
         sodasRes = "once.";
       break;
@@ -12,10 +14,8 @@
       break;
       default:
         sodasRes = sodasHad + " times.";
-      break;
     }
-
-    sodasHad = robot.brain.get('totalSodas') * 1 || 0;
+    
     if (sodasHad > 0) {
       res.reply("We already played " + sodasRes);
       return robot.brain.set('totalSodas', sodasHad + 1);
