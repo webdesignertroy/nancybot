@@ -85,7 +85,7 @@ module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
         var feet = 5;
         var inch = 3;
-        var lbs = 925;
+        var lbs = userWeight;
 
         var allInches = feet * 12 + inch; 
 
