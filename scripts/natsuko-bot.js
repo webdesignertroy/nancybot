@@ -92,14 +92,14 @@ module.exports = function(robot) {
 }
 
 module.exports = function(robot) {
-    robot.respond(/Hi Hubot! My name is (.*)/i, function(weight) {
-        var weight = weight.match[1];
+    robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
+        var name = message.match[1];
         if (name == 'Nancy') {
-            return weight.send('You are not Nancy-- I am Nancy!');
+            return message.send('You are not Nancy-- I am Nancy!');
         } else {
-            return weight.reply('Nice to meet you, ' + name + '!');
+            return message.reply('Nice to meet you, ' + name + '!');
         }
     });
-}
+  
 
 
