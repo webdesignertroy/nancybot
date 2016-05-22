@@ -91,7 +91,7 @@ module.exports = function(robot) {
         var weight = lbs * 703;
 
         //var height = allInches * .025;
-        var height = allInches * allInches;
+        var height = allInches;
 
         var BMI = weight / (height * height)
         return response.send('Your BMI is ' + BMI);
