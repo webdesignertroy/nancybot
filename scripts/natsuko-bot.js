@@ -82,7 +82,7 @@ module.exports = function(robot) {
     })
 
 
-    robot.hear(/BMI?/, function(response) {
+    //robot.hear(/BMI?/, function(response) {
         var feet = 5;
         var inch = 3;
         var lbs = 925;
@@ -107,7 +107,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
         }
         
-    })
+    //})
 
 }
 
