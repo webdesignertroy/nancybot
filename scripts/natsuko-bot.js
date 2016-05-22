@@ -92,13 +92,9 @@ module.exports = function(robot) {
 }
 
 module.exports = function(robot) {
-    robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
-        var name = message.match[1];
-        if (name == 'Nancy') {
-            return message.send('You are not Nancy-- I am Nancy!');
-        } else {
-            return message.reply('Nice to meet you, ' + name + '!');
-        }
+    robot.respond(/My weight is (.*)/i, function(weight) {
+        var weight = weight;
+            return weight.send('OK!');
     });
 }
 
