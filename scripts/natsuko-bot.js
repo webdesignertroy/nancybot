@@ -84,17 +84,23 @@ module.exports = function(robot) {
         var inch = 3;
         var lbs = 125;
 
-        // metric conversion 
-        var allInches = feet * 12 + inch;
+        var allInches = feet * 12 + inch; 
 
-        //var weight = lbs * .45;
+        //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
 
-        //var height = allInches * .025;
+        //var height = allInches * .025; // Converting to meter and needed for metric conversion
         var height = allInches;
 
         var BMI = weight / (height * height)
-        return response.send('Your BMI is ' + BMI);
+
+        if (BMI <= 18.5) {
+            return response.send('Your BMI is ' + BMI + '. You are underweight.');
+        } else {
+            return response.send('Your BMI is ' + BMI + '. You are normal weight.');
+
+        }
+        
     })
 
 }
