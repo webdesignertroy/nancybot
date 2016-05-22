@@ -4,7 +4,7 @@
 
 var allStudents = [
 {name: "stefan2122", BMI: 0, H2O: 0},
-{name: "netsuke", BMI: 0, H2O: 0},
+{name: "netsukoe", BMI: 0, H2O: 0},
 {name: "asaldivar", BMI: 0, H2O: 0},
 {name: "johnnythecakes", BMI: 0, H2O: 0},
 {name: "tyleriscool", BMI: 0, H2O: 0},
