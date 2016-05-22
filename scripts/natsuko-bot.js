@@ -60,23 +60,6 @@ Obesity = BMI of 30 or greater
 The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23.
 */
 
-/*
-module.exports = function(robot) {
-    robot.hear(/BMI?/, function(response) {
-
-        // metric conversion 
-        var allInches = feet * 12 + inch
-
-        var weight = 125 * .45
-        var height = allInches * .025
-
-        var BMI = weight / (height * height)
-        console.log(BMI);
-        return response.send(BMI);
-    })
-
-}
-*/
 
 module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
@@ -96,11 +79,13 @@ module.exports = function(robot) {
 
         if (BMI <= 18.5) {
             return response.send('Your BMI is ' + BMI + '. You are underweight.');
-        } else {
+        } else if (BMI > 18.5 && BMI < 25) {
             return response.send('Your BMI is ' + BMI + '. You are normal weight.');
-
-        }
-        
+        } else if (BMI > 25 && BMI < 30) {
+            return response.send('Your BMI is ' + BMI + '. You are overweight.');
+        } else (BMI <= 30) {
+            return response.send('Your BMI is ' + BMI + '. You are normal obesity.');
+        }        
     })
 
 }
