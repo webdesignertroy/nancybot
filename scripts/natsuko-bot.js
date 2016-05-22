@@ -85,11 +85,13 @@ module.exports = function(robot) {
         var lbs = 125;
 
         // metric conversion 
-        var allInches = feet * 12 + inch
+        var allInches = feet * 12 + inch;
 
-        //var weight = lbs * .45
+        //var weight = lbs * .45;
         var weight = lbs * 703;
-        var height = allInches * .025
+
+        //var height = allInches * .025;
+        var height = allInches * allInches;
 
         var BMI = weight / (height * height)
         return response.send('Your BMI is ' + BMI);
