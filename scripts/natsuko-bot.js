@@ -94,7 +94,7 @@ module.exports = function(robot) {
 module.exports = function(robot) {
     robot.respond(/My weight is (.*)/i, function(weight) {
         var weight = weight;
-            return weight.send('OK!');
+            return weight.send('OK!' + weight);
     });
 }
 
