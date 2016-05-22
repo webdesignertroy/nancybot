@@ -100,6 +100,6 @@ module.exports = function(robot) {
             return message.reply('Nice to meet you, ' + name + '!');
         }
     });
-  
+}
 
 
