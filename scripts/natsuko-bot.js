@@ -92,10 +92,10 @@ module.exports = function(robot) {
 }
 
 module.exports = function(robot) {
-    robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
-        var userWeight = message.match[1];
+    robot.respond(/My weight is (.*)/i, function(weightData) {
+        var userWeight = weightData.match[1];
 
-        return message.send(userWeight + 'lbs!');
+        return weightData.send(userWeight + 'lbs!');
 
     })
 }
