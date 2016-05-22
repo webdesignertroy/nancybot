@@ -81,7 +81,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are underweight.');
         } else if (BMI > 18.5 && BMI < 25) {
             return response.send('Your BMI is ' + BMI + '. You are normal weight. Great!');
-        } else () {
+        } else {
             return response.send('Your BMI is ' + BMI + '. You are..');
         }
         
