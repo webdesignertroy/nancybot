@@ -78,18 +78,28 @@ module.exports = function(robot) {
         var BMI = weight / (height * height)
 
         if (BMI <= 18.5) {
-            return response.send('Your BMI is ' + BMI + '. You are underweight.');
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.');
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are normal weight.');
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.');
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are normal overweight.');     
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.');     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are obesity');
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
         }
         
     })
 
 }
+
+module.exports = function(robot) {
+    robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
+        var name = message.match[1];
+        if (name == 'Nancy') {
+            return message.send('You are not Nancy-- I am Nancy!');
+        } else {
+            return message.reply('Nice to meet you, ' + name + '!');
+        }
+    });
   
 
 
