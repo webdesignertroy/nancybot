@@ -83,11 +83,11 @@ module.exports = function(robot) {
     })
 
     robot.respond(/BMI?/, function(response) {
-        var feet = 5;
+        var foot = 5;
         var inch = 3;
         var lbs = 925;
 
-        var allInches = feet * 12 + inch; 
+        var allInches = foot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
@@ -95,7 +95,8 @@ module.exports = function(robot) {
         //var height = allInches * .025; // Converting to meter and needed for metric conversion
         var height = allInches;
 
-        var BMI = weight / (height * height)
+        var rawBMI = weight / (height * height)
+        var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
 
         if (BMI <= 18.5) {
             return response.send('Your BMI is ' + BMI + '. You are considered as underweight.');
