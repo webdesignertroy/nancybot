@@ -65,7 +65,7 @@ module.exports = function(robot) {
     robot.hear(/BMI?/, function(response) {
         var feet = 5;
         var inch = 3;
-        var lbs = 125;
+        var lbs = 925;
 
         var allInches = feet * 12 + inch; 
 
@@ -80,9 +80,11 @@ module.exports = function(robot) {
         if (BMI <= 18.5) {
             return response.send('Your BMI is ' + BMI + '. You are underweight.');
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are normal weight. Great!');
+            return response.send('Your BMI is ' + BMI + '. You are normal weight.');
+        } else if (BMI > 25 && BMI < 30) {
+            return response.send('Your BMI is ' + BMI + '. You are normal overweight.');     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are..');
+            return response.send('Your BMI is ' + BMI + '. You are obesity');
         }
         
     })
