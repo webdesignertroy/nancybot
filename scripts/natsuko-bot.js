@@ -62,6 +62,7 @@ The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23
 
 
 module.exports = function(robot) {
+
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = weightData.match[1];
 
@@ -81,8 +82,7 @@ module.exports = function(robot) {
 
     })
 
-
-    //robot.hear(/BMI?/, function(response) {
+    robot.respond(/BMI?/, function(response) {
         var feet = 5;
         var inch = 3;
         var lbs = 925;
@@ -107,7 +107,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
         }
         
-    //})
+    })
 
 }
 
