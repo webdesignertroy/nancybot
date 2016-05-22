@@ -83,13 +83,9 @@ module.exports = function(robot) {
     })
 
     robot.respond(/BMI?/, function(response) {
-        var x = prompt("Enter your height in foot only: ");
-        var y = prompt("Enter your height in inch only: ");
-        var z = prompt("Enter your weight: ")
-
-        var foot = parseInt(x);
-        var inch = parseInt(y);
-        var lbs = parseInt(z);
+        var foot = 5;
+        var inch = 3;
+        var lbs = 925;
 
         var allInches = foot * 12 + inch; 
 
