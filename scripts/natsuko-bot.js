@@ -99,7 +99,8 @@ module.exports = function(robot) {
         } else {
             return message.reply('Nice to meet you, ' + name + '!');
         }
-    });
+    })
+}
   
 
 
