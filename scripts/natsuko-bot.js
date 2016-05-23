@@ -7,7 +7,7 @@ module.exports = function(robot) {
 }
 
 // .respond is the respond method
-// .here is to show the @name
+// .hear is to show the @name
 // index starts from 1 instead of 0
 module.exports = function(robot) {
 	robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
@@ -63,8 +63,8 @@ The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23
 // Basic Bot Hear Command
 
 
-bot.hear(/Hello!/, function(res) {
-   return res.send("Hi there!");
+robot.hear(/Nancy || help/, function(res) {
+   return res.send("Hi there! I can help you to stay healthy. Please enter your weight and height to begin.");
  });
 
 
@@ -93,7 +93,7 @@ module.exports = function(robot) {
     robot.respond(/BMI?/, function(response) {
         var foot = 5;
         var inch = 3;
-        var lbs = weightData;
+        var lbs = 925;
 
         var allInches = foot * 12 + inch; 
 
