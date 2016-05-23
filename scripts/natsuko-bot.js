@@ -71,6 +71,10 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
+    robot.hear(/Nancy?/i, function(msg){
+        msg.send("Hello, I can help you stay healthy. Please enter your weight and height.");
+    });
+
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = weightData.match[1];
 
