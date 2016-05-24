@@ -89,7 +89,7 @@ module.exports = function(robot) {
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
 
-        return footData.send(userFoot + 'foot');
+        return footData.send(typeof userFoot);
 
     })
     robot.respond(/Inch: (.*)/i, function(inchData) {
