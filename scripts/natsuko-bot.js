@@ -75,8 +75,8 @@ bot.hear(/Hello!/, function(res) {
 module.exports = function(robot) {
 
     robot.respond(/Nancy? || special/i, function(greeting) {
-        greeting.send("Hello, I can help you stay healthy. Please enter your weight and height in this format.");
-        greeting.send("Weight: xx Foot: xx Inch: xx.");
+        return greeting.send("Hello, I can help you stay healthy. Please enter your weight and height in this format.");
+        return greeting.send("Weight: xx Foot: xx Inch: xx.");
     });
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
