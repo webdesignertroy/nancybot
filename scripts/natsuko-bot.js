@@ -81,7 +81,7 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData.match[1]);
 
-        return weightData.send(userWeight + 'lbs');
+        return weightData.send(typeof userWeight);
 
         //return weightData.send(userWeight + 'lbs!');
 
@@ -89,13 +89,13 @@ module.exports = function(robot) {
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
 
-        return footData.send(typeof userFoot);
+        return footData.send(userFoot + 'foot');
 
     })
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        var userInch = parseInt(inchData.match[1]);
+        var userInch = inchData.match[1];
 
-        return inchData.send(typeof userInch);
+        return inchData.send(userInch + 'inch');
 
     })
 
