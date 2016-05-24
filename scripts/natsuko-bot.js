@@ -44,11 +44,86 @@ module.exports = function(robot) {
 }
 */
 
+/*
+BMI Categories: 
+Underweight = <18.5
+Normal weight = 18.5–24.9 
+Overweight = 25–29.9 
+Obesity = BMI of 30 or greater
+
+5’3" and weighs 125 lbs
+
+125 X 0.45 = 56.25 kg (Multiply the weight in pounds by 0.45 (the metric conversion factor))
+63 X 0.025 = 1.575 m (Multiply the height in inches by 0.025 (the metric conversion factor))
+1.575 X 1.575 = 2.480625  <Square the answer from step 2>
+56.25 : 2.480625 = 22.7 <Divide the answer from step 1 by the answer from step 3>
+The BMI for a person who is 5’3" and weighs 125 lbs is 22.7 or practically, 23.
+*/
+
+// Basic Bot Hear Command
+
+/*
+bot.hear(/Hello!/, function(res) {
+   return res.send("Hi there!");
+ });
+*/
+
+
 module.exports = function(robot) {
-    robot.hear(/Howdy/, function(response) {
-        return reponse.send('Another great day!');
+
+    robot.hear(/Nancy? || special/i, function(msg){
+        msg.send("Hello, I can help you stay healthy. Please enter your weight and height.");
+    });
+
+    robot.respond(/Weight: (.*)/i, function(weightData) {
+        var userWeight = weightData.match[1];
+
+        return weightData.send(userWeight + 'lbs!');
+
     })
+    robot.respond(/Foot: (.*)/i, function(footData) {
+        var userFoot = footData.match[1];
+
+        return footData.send(userFoot + 'foot');
+
+    })
+    robot.respond(/Inch: (.*)/i, function(inchData) {
+        var userInch = inchData.match[1];
+
+        return inchData.send(userInch + 'inch');
+
+    })
+
+    robot.respond(/BMI?/, function(response) {
+        var foot = 5;
+        var inch = 3;
+        var lbs = 925;
+
+        var allInches = foot * 12 + inch; 
+
+        //var weight = lbs * .45; // Needed for metric conversion 
+        var weight = lbs * 703;
+
+        //var height = allInches * .025; // Converting to meter and needed for metric conversion
+        var height = allInches;
+
+        var rawBMI = weight / (height * height)
+        var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
+
+        if (BMI <= 18.5) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.');
+        } else if (BMI > 18.5 && BMI < 25) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.');
+        } else if (BMI > 25 && BMI < 30) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.');     
+        } else {
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
+        }
+        
+    })
+
 }
+
   
 
 
