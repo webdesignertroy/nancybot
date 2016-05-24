@@ -78,12 +78,16 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
 
+function testWeight () {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = weightData.match[1];
 
-        return weightData.send(weightData.match[1] + 'lbs!');
+        return weightData;
 
     })
+
+}
+    
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = footData.match[1];
 
@@ -100,7 +104,7 @@ module.exports = function(robot) {
     robot.respond(/BMI?/, function(response) {
         var foot = 5;
         var inch = 3;
-        var lbs = 925;
+        var lbs = parseInt(testWeight);
 
         var allInches = foot * 12 + inch; 
 
