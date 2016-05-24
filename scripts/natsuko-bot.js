@@ -81,21 +81,21 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData.match[1]);
 
-        return weightData.send(typeof userWeight);
+        return weightData.send(userWeight + 'lbs');
 
         //return weightData.send(userWeight + 'lbs!');
 
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
-        var userFoot = footData.match[1];
+        var userFoot = parseInt(footData.match[1]);
 
-        return footData.send(userFoot + 'foot');
+        return footData.send(userFoot + 'foot' + typeof userFoot);
 
     })
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        var userInch = inchData.match[1];
+        var userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(userInch + 'inch');
+        return inchData.send(userInch + 'inch' + typeof userInch);
 
     })
 
