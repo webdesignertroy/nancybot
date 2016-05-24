@@ -1,59 +1,74 @@
 // JavaScript Document
 
- module.exports = function(robot) { 
+module.exports = function(robot) { 
 
-var allStudents = [
-{name: "stefan2122", BMI: 0, H2O: 0},
-{name: "netsukoe", BMI: 0, H2O: 0},
-{name: "asaldivar", BMI: 0, H2O: 0},
-{name: "johnnythecakes", BMI: 0, H2O: 0},
-{name: "tyleriscool", BMI: 0, H2O: 0},
-{name: "maykosaka", BMI: 0, H2O: 0},
-{name: "adrinr", BMI: 0, H2O: 0},
-{name: "amicar", BMI: 0, H2O: 0},
-{name: "dreiserman", BMI: 0, H2O: 0},
-{name: "evanomics", BMI: 0, H2O: 0},
-{name: "gonz", BMI: 0, H2O: 0},
-{name: "evanomics", BMI: 0, H2O: 0},
-{name: "jackreid", BMI: 0, H2O: 0},
-{name: "mcunningham78", BMI: 0, H2O: 0},
-{name: "raffikazanijan", BMI: 0, H2O: 0}
-];
+/******** Variables ********/
+var participate;
+var initialQuestion = "empty";
+var pounds;
+var minutes;
 
-var sodasHad;
-var sodasRes;
+/******** Arrays ********/
+var imageUnfurl = [
+  "1.png",
+  "2.png",
+  "3.png",
+  "4.png",
+  "5.png",
+  "6.png",
+  "7.png",
+  "8.png",
+  "9.png",
+  "10.jpeg",
+  "11.png",
+  "12.png",
+  "13.png",
+  "14.png",
+  "15.png",
+  "16.png",
+  "17.png",
+  "18.png",
+  "19.png",
+  "20.png"
+  ];
 
-//Play Day  
-  robot.respond(/do you want to play/i, function(res) { 
-    	
-    sodasHad = robot.brain.get('totalSodas') * 1 || 0; 
 
-    switch (sodasHad) {
-      case 1:
-        sodasRes = "once.";
-      break;
-      case 2:
-        sodasRes = "twice.";
-      break;
-      default:
-        sodasRes = sodasHad + " times.";
-    }
+/******** Questions ********/
+
+//Listens for thristy
+  robot.respond(/(.*) thirsty (.*) | thirsty (.*) | (.*) thirsty/i, function(res) { 
     
-    if (sodasHad > 0) {
-      res.reply("We already played " + sodasRes);
-      return robot.brain.set('totalSodas', sodasHad + 1);
-    } else {
-      res.reply('Sure!');
-      return robot.brain.set('totalSodas', sodasHad + 1);
-    }
+    res.reply('Would you like to find out how much water you need to drink a day?\nType: _*OK Nancy*_ if you want to know.');
+      
   });
 
-  robot.respond(/sleep it off/i, function(res) {
-    robot.brain.set('totalSodas', 0);
-    return msg.reply('zzzzz');
+//Listens for Ok Nancy
+  robot.hear(/Ok Nancy/i, function(res) {
+    res.send('How much do you weigh in lbs?\nRespond with: "nancy [your weight] lbs"\n(e.g. _*nancy 135 lbs*_)');
   });
 
+//Listens for * lbs
+  robot.respond(/(.*) lbs/i, function(res) {   
+    pounds = res.match[1];  
+    res.reply('Now, on an average, how many minutes do you exercise per day?\nRespond with: "nancy [number of minutes] minutes"\n(e.g. _*nancy 30 minutes*_)');      
+  });
 
-
+//Listens for * minutes
+  robot.respond(/(.*) minutes/i, function(res) {   
+    minutes = res.match[1];  
+    var min = 1;
+    var max = imageUnfurl.length - 1;
+    var rndPick = Math.floor(Math.random() * (max - min + 1)) + min;
+    var weightAnswer = pounds * 0.5;
+    var exerciseAnswer = minutes / 30 * 12;
+    var waterAnswer = weightAnswer + exerciseAnswer;
+    var inGallons = waterAnswer * 0.0078125;
+    inGallons = inGallons.toFixed(2);
+    var waterResponse = "You need to drink *" + waterAnswer + " oz* (*" + inGallons + " gal*) of water every day.\n";
+    waterResponse +='!http://webdesignertroy.com/dump/' + imageUnfurl[rndPick] +'\n';
+    waterResponse += "To get a more exact result when considering gender, age, height, etc.,\n";
+    waterResponse += "Check out the [Hydration Calculator!](http://www.camelbak.com/en/HydratED/HydrationCalculator.aspx)";
+    res.reply(waterResponse);      
+  });
 
 };
