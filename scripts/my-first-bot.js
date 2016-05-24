@@ -62,8 +62,8 @@ var feedMeUnfurl = [
       
   });
 
-//Listens for Ok Wallace
-  robot.hear(/Ok Wallace/i, function(res) {
+//Listens for Ok bot name
+  robot.hear(/Ok Nancy/i, function(res) {
     res.send('How much do you weigh in lbs?\nRespond with: "' + botName + ' [your weight] lbs"\n(e.g. _*' + botName + ' 135 lbs*_)');
   });
 
