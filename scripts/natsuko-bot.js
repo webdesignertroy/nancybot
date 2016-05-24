@@ -74,12 +74,12 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
-    robot.hear(/Nancy? || special/i, function(msg){
-        msg.send("Hello, I can help you stay healthy. Please enter your weight and height.");
+    robot.hear(/Nancy? || special/i, function(greeting) {
+        greeting.send("Hello, I can help you stay healthy. Please enter your weight and height.");
     });
 
-    robot.respond("show me how", function(msg) {
-        msg.reply("Weight: xx Foot: xx Inch: xx.");
+    robot.respond("show me how", function(showFormat) {
+        showFormat.reply("Weight: xx Foot: xx Inch: xx.");
     });
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
