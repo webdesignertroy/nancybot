@@ -71,7 +71,7 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
-    robot.hear(/Nancy? || help/i, function(msg){
+    robot.hear(/Nancy? || special/i, function(msg){
         msg.send("Hello, I can help you stay healthy. Please enter your weight and height.");
     });
 
