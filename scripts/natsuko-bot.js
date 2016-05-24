@@ -78,7 +78,7 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
 
-    robot.respond(/Weight: (.*)/i, function userWeight (weightData) {
+    robot.respond(/Weight: (.*)/i, function(weightData) {
 
         return weightData.send(weightData + 'lbs!');
 
