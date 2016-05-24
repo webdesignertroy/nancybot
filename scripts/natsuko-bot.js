@@ -93,9 +93,9 @@ module.exports = function(robot) {
 
     })
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        var userInch = inchData.match[1];
+        var userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(userInch + 'inch');
+        return inchData.send(typeof userInch);
 
     })
 
