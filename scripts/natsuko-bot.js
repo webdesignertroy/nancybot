@@ -75,13 +75,12 @@ bot.hear(/Hello!/, function(res) {
 module.exports = function(robot) {
 
     robot.respond(/special/i, function(greeting) {
-        return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx.');
+        return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
 
-    robot.respond(/Weight: (.*)/i, function(weightData) {
-        var userWeight = weightData.match[1];
+    robot.respond(/Weight: (.*)/i, function userWeight (weightData) {
 
-        return weightData.send(userWeight + 'lbs!');
+        return weightData.send(weightData + 'lbs!');
 
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
