@@ -79,8 +79,9 @@ module.exports = function(robot) {
     })
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
+        var  = weightData.match[1];
 
-        return weightData.send(weightData + 'lbs!');
+        return weightData.send(userWeight + 'lbs!');
 
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
