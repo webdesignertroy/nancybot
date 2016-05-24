@@ -53,6 +53,10 @@ var feedMeUnfurl = [
   "19.jpg",
   "20.jpg"
   ];
+
+/******** Functions ********/
+var regex = new RegExp('Ok ' + botName, 'i');
+
 /******** Questions ********/
 
 //Listens for word thristy
@@ -63,7 +67,7 @@ var feedMeUnfurl = [
   });
 
 //Listens for Ok bot name
-  robot.hear(/Ok Nancy/i, function(res) {
+  robot.hear(regex, function(res) {
     res.send('How much do you weigh in lbs?\nRespond with: "' + botName + ' [your weight] lbs"\n(e.g. _*' + botName + ' 135 lbs*_)');
   });
 
@@ -74,13 +78,13 @@ var feedMeUnfurl = [
       res.reply('Now, on an average, how many minutes do you exercise per day?\nRespond with: "' + botName + ' [number of minutes] minutes"\n(e.g. _*' + botName + ' 30 minutes*_)');
     } else {
       var err = res.match[1]; 
-      var tryAgain = 'Something is off.  Please try again.\n' ;
-      tryAgain += 'lbs reads: ' + err +'\n';
+      var tryAgain = 'Something is off.\n' ;
+      tryAgain += 'lbs read: ' + err +'.  Please try again.\n';
       tryAgain += 'Type: _*OK ' + botName + '*_';
       res.reply(tryAgain);      
     }
 
-  });
+  }); 
 
 //Listens for * minutes
   robot.respond(/(.*) minutes/i, function(res) { 
@@ -101,8 +105,8 @@ var feedMeUnfurl = [
       res.reply(waterResponse); 
     } else {
       var err = res.match[1]; 
-      var tryAgain = 'Something is off.  Please try again.\n' ;
-      tryAgain += 'minutes reads: ' + err +'\n';
+      var tryAgain = 'Something is off.\n' ;
+      tryAgain += 'minutes read: ' + err +'.  Please try again.\n';
       tryAgain += 'Type: _*OK ' + botName + '*_';
       res.reply(tryAgain);      
     }
