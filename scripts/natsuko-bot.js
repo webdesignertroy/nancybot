@@ -81,7 +81,7 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = weightData.match[1];
 
-        return weightData.send(userWeight + 'lbs!');
+        return weightData.send(weightData.match[1] + 'lbs!');
 
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
