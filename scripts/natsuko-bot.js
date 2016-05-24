@@ -79,10 +79,7 @@ module.exports = function(robot) {
     })
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        var userWeight = weightData.match[1];
-
         return weightData.send(userWeight + 'lbs!');
-
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = footData.match[1];
@@ -97,10 +94,12 @@ module.exports = function(robot) {
 
     })
 
+    var userWeight = weightData;
+
     robot.respond(/BMI?/, function(response) {
         var foot = 5;
         var inch = 3;
-        var lbs = 925;
+        var lbs = userWeight;
 
         var allInches = foot * 12 + inch; 
 
