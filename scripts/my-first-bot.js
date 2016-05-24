@@ -5,7 +5,7 @@ module.exports = function(robot) {
 /******** Global Variables ********/
 var pounds; //stay persistent
 var minutes; //stay persistent
-var botName = "wallace"; //My bot name may change
+var botName = "nancy"; //My bot name may change
 
 /******** Arrays ********/
 var imageUnfurl = [
