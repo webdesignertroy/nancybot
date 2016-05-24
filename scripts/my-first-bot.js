@@ -25,8 +25,7 @@ var sodasRes;
 
 //Play Day  
   robot.respond(/do you want to play/i, function(res) { 
-    sender   = msg.message.user.name.toLowerCase();
-	
+    	
     sodasHad = robot.brain.get('totalSodas') * 1 || 0; 
 
     switch (sodasHad) {
@@ -44,7 +43,7 @@ var sodasRes;
       res.reply("We already played " + sodasRes);
       return robot.brain.set('totalSodas', sodasHad + 1);
     } else {
-      res.reply('Sure,' + sender);
+      res.reply('Sure!');
       return robot.brain.set('totalSodas', sodasHad + 1);
     }
   });
