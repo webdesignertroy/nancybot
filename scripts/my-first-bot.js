@@ -32,6 +32,28 @@ var imageUnfurl = [
   "20.png"
   ];
 
+var feedMeUnfurl = [
+  "1.jpeg",
+  "2.jpg",
+  "3.jpeg",
+  "4.jpeg",
+  "5.jpeg",
+  "6.jpg",
+  "7.jpg",
+  "8.jpg",
+  "9.jpg",
+  "10.jpeg",
+  "11.jpeg",
+  "12.jpg",
+  "13.jpg",
+  "14.jpeg",
+  "15.jpg",
+  "16.jpeg",
+  "17.jpg",
+  "18.jpg",
+  "19.jpg",
+  "20.jpg"
+  ];
 
 /******** Questions ********/
 
@@ -69,6 +91,16 @@ var imageUnfurl = [
     waterResponse += "To get a more exact result when considering gender, age, height, etc.,\n";
     waterResponse += "Check out the [Hydration Calculator!](http://www.camelbak.com/en/HydratED/HydrationCalculator.aspx)";
     res.reply(waterResponse);      
+  });
+
+  //Listens for hungry
+  robot.hear(/hungry/i, function(res) {   
+    var min = 1;
+    var max = feedMeUnfurl.length - 1;
+    var rndPick = Math.floor(Math.random() * (max - min + 1)) + min;
+    var foodResponse = "Eat This and Stay Healthy:\n";
+    foodResponse +='!http://webdesignertroy.com/dump/healthy/' + feedMeUnfurl[rndPick] +'\n';
+    res.reply(foodResponse);      
   });
 
 };
