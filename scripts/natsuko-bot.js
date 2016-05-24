@@ -86,7 +86,7 @@ module.exports = function(robot) {
 
         var foot = 5;
         var inch = 3;
-        var lbs = userWeight;
+        var lbs == userWeight;
 
         var allInches = foot * 12 + inch; 
 
@@ -114,7 +114,7 @@ module.exports = function(robot) {
 
 
 
-        
+
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
