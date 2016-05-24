@@ -94,7 +94,7 @@ module.exports = function(robot) {
 
     })
 
-    var userWeight = weightData;
+    var userWeight = weightData();
 
     robot.respond(/BMI?/, function(response) {
         var foot = 5;
