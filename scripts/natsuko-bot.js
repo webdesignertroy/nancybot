@@ -81,12 +81,12 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData.match[1]);
 
-        return weightData;
+        return userWeight;
 
 
         var foot = 5;
         var inch = 3;
-        var lbs = weightData;
+        var lbs = userWeight;
 
         var allInches = foot * 12 + inch; 
 
