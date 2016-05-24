@@ -81,7 +81,40 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData.match[1]);
 
-        return weightData.send(userWeight + 'lbs');
+        return weightData;
+
+
+        var foot = 5;
+        var inch = 3;
+        var lbs = weightData;
+
+        var allInches = foot * 12 + inch; 
+
+        //var weight = lbs * .45; // Needed for metric conversion 
+        var weight = lbs * 703;
+
+        //var height = allInches * .025; // Converting to meter and needed for metric conversion
+        var height = allInches;
+
+        var rawBMI = weight / (height * height)
+        var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
+
+        if (BMI <= 18.5) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.');
+        } else if (BMI > 18.5 && BMI < 25) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.');
+        } else if (BMI > 25 && BMI < 30) {
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.');     
+        } else {
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
+        }
+
+
+
+
+
+
+
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
@@ -94,12 +127,11 @@ module.exports = function(robot) {
         return inchData.send(userInch + ' inch');
     })
 
-    var userWeight == userWeight;
 
     robot.respond(/BMI?/, function(response) {
         var foot = 5;
         var inch = 3;
-        var lbs = userWeight;
+        var lbs = 925;
 
         var allInches = foot * 12 + inch; 
 
