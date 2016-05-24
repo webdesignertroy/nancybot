@@ -89,13 +89,13 @@ module.exports = function(robot) {
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
 
-        return footData.send(userFoot + 'foot' + typeof userFoot);
+        return footData.send(typeof userFoot);
 
     })
     robot.respond(/Inch: (.*)/i, function(inchData) {
         var userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(userInch + 'inch' + typeof userInch);
+        return inchData.send(typeof userInch);
 
     })
 
