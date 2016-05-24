@@ -6,8 +6,11 @@ module.exports = function(robot) {
 
 }
 
-// .respond is the respond method
-// .here is to show the @name
+// hear: Will listen to all messages sent and check whether it matches before firing the callback.
+// respond: Will only analyze the message if it is addressed directly to Alfred (i.e. it starts with your hubot’s name: Alfred image me the joker)
+// send: Sends a message to the chat.
+// reply: Replies to a user directly (i.e.: Mr. Wayne: Right away sir!)
+
 // index starts from 1 instead of 0
 module.exports = function(robot) {
 	robot.respond(/Hi Hubot! My name is (.*)/i, function(message) {
@@ -73,6 +76,10 @@ module.exports = function(robot) {
 
     robot.hear(/Nancy? || special/i, function(msg){
         msg.send("Hello, I can help you stay healthy. Please enter your weight and height.");
+    });
+
+    robot.respond("show me how", function(msg) {
+        msg.reply("Weight: xx Foot: xx Inch: xx.");
     });
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
