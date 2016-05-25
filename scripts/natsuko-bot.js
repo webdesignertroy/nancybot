@@ -74,7 +74,7 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
-    var userWeight;
+    var userWeightTest = userWeight;
     var userFoot;
     var userInch;
 
@@ -85,7 +85,7 @@ module.exports = function(robot) {
     robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData);
 
-        return weightData.send(typeof userWeight);
+        return weightData.send(typeof userWeightTest);
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
