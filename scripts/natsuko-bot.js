@@ -80,7 +80,7 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    robot.respond(/Weight: (.*)/i, function userWeightTest(weightData) {
+    robot.respond(/Weight: (.*)/i, function (weightData) {
         var userWeight = parseInt(weightData);
 
         return weightData.send(typeof userWeightTest);
@@ -96,7 +96,7 @@ module.exports = function(robot) {
         return inchData.send(userInch + ' inch');
     })
 
-    //var userWeightTest
+    //var userWeight
     //var userFoot;
     //var userInch;
 
