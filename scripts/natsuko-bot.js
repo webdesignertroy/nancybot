@@ -81,11 +81,11 @@ module.exports = function(robot) {
     robot.respond(/special/i, function(greeting) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
-
+    robot.respond(/open the (.*) doors/i, function(res) {});
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        var userWeight = parseInt(weightData.match[1]);
+        var userWeight = parseInt(weightData);
 
-        return weightData.send(userWeight + 'lbs');
+        return weightData.send(typeof userWeight);
     })
     robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
