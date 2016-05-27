@@ -80,17 +80,17 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    robot.respond(/Weight: (.*)/i, function (weightData) {
+    var userWeight = robot.respond(/Weight: (.*)/i, function (weightData) {
         var userWeight = parseInt(weightData);
 
         return weightData.send(typeof userWeight);
     })
-    robot.respond(/Foot: (.*)/i, function(footData) {
+    var userFoot = robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
 
         return footData.send(userFoot + ' foot');
     })
-    robot.respond(/Inch: (.*)/i, function(inchData) {
+    var userInch = robot.respond(/Inch: (.*)/i, function(inchData) {
         var userInch = parseInt(inchData.match[1]);
 
         return inchData.send(userInch + ' inch');
