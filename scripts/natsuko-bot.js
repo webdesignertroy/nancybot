@@ -96,16 +96,12 @@ module.exports = function(robot) {
         return inchData.send(userInch + ' inch');
     })
 
-    //var userWeight
-    //var userFoot;
-    //var userInch;
+    var foot = userFoot;
+    var inch = userInch;
+    var lbs = userWeight;
 
 
     robot.respond(/BMI?/, function(response) {
-
-        var foot = userFoot;
-        var inch = userInch;
-        var lbs = userWeight;
 
         var allInches = foot * 12 + inch; 
 
