@@ -83,17 +83,17 @@ module.exports = function(robot) {
     var userWeight = robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData.match[1]);
 
-        return userWeight;
+        return 1;
     })
     var userFoot = robot.respond(/Foot: (.*)/i, function(footData) {
         var userFoot = parseInt(footData.match[1]);
 
-        return userFoot;
+        return 2;
     })
     var userInch = robot.respond(/Inch: (.*)/i, function(inchData) {
         var userInch = parseInt(inchData.match[1]);
 
-        return userInch;
+        return 3;
     })
 
     var foot = userFoot;
