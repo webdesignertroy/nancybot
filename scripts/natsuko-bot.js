@@ -103,9 +103,9 @@ module.exports = function(robot) {
 
     robot.respond(/BMI?/, function(response) {
 
-        var foot = userFoot;
-        var inch = userInch;
-        var lbs = userWeight;
+        var foot = 5;
+        var inch = 5;
+        var lbs = 120;
 
         var allInches = foot * 12 + inch; 
 
