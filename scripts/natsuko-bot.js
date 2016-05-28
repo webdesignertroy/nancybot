@@ -80,7 +80,7 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    var userWeight = robot.respond(/Weight: (.*)/i, function (weightData) {
+    var userWeight = robot.respond(/Weight: (.*)/i, function(weightData) {
         var userWeight = parseInt(weightData);
 
         return weightData.send(userWeight + 'lbs');
@@ -119,13 +119,13 @@ module.exports = function(robot) {
         var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
 
         if (BMI <= 18.5) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.');
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + lbs);
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.');
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' + lbs);
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.');     
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.' + lbs);     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.');
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' + lbs);
         }
         
     })
