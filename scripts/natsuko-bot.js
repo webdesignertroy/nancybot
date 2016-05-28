@@ -93,10 +93,10 @@ module.exports = function(robot) {
     var userInch = robot.respond(/Inch: (.*)/i, function(inchData) {
         var userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(userInch + ' inch');
+        //return inchData.send(userInch + ' inch');
 
 
-        
+
 
     var foot = userFoot;
     var inch = userInch;
