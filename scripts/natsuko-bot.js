@@ -119,13 +119,13 @@ module.exports = function(robot) {
         var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
 
         if (BMI <= 18.5) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + foot + inch + lbs);
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' +foot + inch + lbs);
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.' + lbs);     
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.' + foot + inch + lbs);     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
         }
         
     })
