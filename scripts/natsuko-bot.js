@@ -135,7 +135,7 @@ module.exports = function(robot) {
 
     robot.respond(/BMI?/, function(response) {
    
-        if(userWeight === undefined || userFoot === undefined || userInch){
+        if(userWeight === undefined || userFoot === undefined || userInch == undefined){
             return response.send("I do not have variables tye... ;-( ");
         }
 
