@@ -138,7 +138,7 @@ module.exports = function(robot) {
         } else if (BMI > 18.5 && BMI < 25) {
             return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' +foot + inch + lbs);
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal overweight.' + foot + inch + lbs);     
+            return response.send('Your BMI is ' + BMI + '. You are considered as overweight.' + foot + inch + lbs);     
         } else {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
         }
