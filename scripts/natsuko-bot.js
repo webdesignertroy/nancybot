@@ -131,13 +131,13 @@ module.exports = function(robot) {
         var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
 
         if (BMI <= 18.5) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + foot +"feet" + inch + "inch " + lbs + "lbs");
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + " (" + foot +"feet" + inch + "inch " + lbs + "lbs)");
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' + foot +"feet" + inch + "inch " + lbs + "lbs");
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' + " (" + foot +"feet" + inch + "inch " + lbs + "lbs)");
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as overweight.' + foot +"feet" + inch + "inch " + lbs + "lbs");     
+            return response.send('Your BMI is ' + BMI + '. You are considered as overweight.' + " (" + foot +"feet" + inch + "inch " + lbs + "lbs)");     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' + foot +"feet" + inch + "inch " + lbs + "lbs");
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' + " (" + foot +"feet" + inch + "inch " + lbs + "lbs)");
         }
         
     });
