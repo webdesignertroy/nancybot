@@ -96,9 +96,9 @@ module.exports = function(robot) {
     });*/
 
 
-    userWeight;
-    userFoot;
-    userInch;
+    var userWeight;
+    var userFoot;
+    var userInch;
 
     robot.respond(/who/i, function(question){
         return question.send(this);
