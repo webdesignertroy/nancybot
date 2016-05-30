@@ -73,7 +73,7 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
-    return robot.respond(*,function(query){
+    robot.respond(*,function(query){
         this.userWeight;
         this.userFoot;
         this.userInch;
