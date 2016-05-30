@@ -73,27 +73,6 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
-    /*robot.respond(*,function(query){
-        this.userWeight;
-        this.userFoot;
-        this.userInch;
-
-        if (query == /Weight: (.*)/i) {
-            this.userWeight = parseInt(query.match[1];
-        } else if (query == /Foot: (.*)/i) {
-            this.userFoot = parseInt(query.match[1];
-
-        } else if (query == /Inch: (.*)/i ) {
-            this.userInch = parseInt(query.match[1];
-        } else if(query !== /status/i) {
-            return query.send( this.userWeight, this.userFoot, this.userInch);
-        } else if(query === /BMI/i){
-            return query.send("calculating");
-        } else {
-            return query.send("sorry, I do not understand you");
-        }
-
-    });*/
 
 
     var userWeight;
