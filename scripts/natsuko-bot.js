@@ -75,7 +75,7 @@ bot.hear(/Hello!/, function(res) {
 module.exports = function(robot) {
 
     robot.respond(/who/i,function(r){
-        r.send(robot);
+        return r.send(robot, '  : ', this);
     });
     
 
@@ -83,23 +83,25 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    var userWeight, userFoot, userInch;
+    this.userWeight;
+    this.userFoot;
+    this.userInch;
 
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        userWeight = parseInt(weightData.match[1]);
+        this.userWeight = parseInt(weightData.match[1]);
 
-        return weightData.send(userWeight + 'lbs');
+        return weightData.send(this.userWeight + 'lbs');
     });
     robot.respond(/Foot: (.*)/i, function(footData) {
-        userFoot = parseInt(footData.match[1]);
+        this.userFoot = parseInt(footData.match[1]);
 
-        return footData.send(userFoot + ' foot');
+        return footData.send(this.userFoot + ' foot');
     });
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        userInch = parseInt(inchData.match[1]);
+        this.userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(userInch + ' inch');
+        return inchData.send(this.userInch + ' inch');
     });
 
     /*var foot = userFoot;
@@ -109,15 +111,15 @@ module.exports = function(robot) {
 
     robot.respond(/BMI?/, function(response) {
    
-        if(userWeight === undefined || userFoot === undefined || userInch){
-            return response.send("please complete hogehoge");
+        if(this.userWeight === undefined || this.userFoot === undefined || this.userInch){
+            return response.send("I do not have variables tye... ;-( ");
         }
 
-        var foot = userFoot;
-        var inch = userInch;
-        var lbs = userWeight;
+        var foot = this.userFoot;
+        var inch = this.userInch;
+        var lbs = this.userWeight;
 
-        var allInches = userFoot * 12 + inch; 
+        var allInches = this.userFoot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
