@@ -73,13 +73,16 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
-    userWeight;
-    userFoot;
-    userInch;
+    var root;
+    root = (typeof exports !== "undefined" && exports !== null) ? exports : this;
+    
+    root.userWeight;
+    root.userFoot;
+    root.userInch;
 
-    /*robot.respond(/who/i,function(question){
-        return r.send(this);
-    });*/
+    robot.respond(/who/i, function(question){
+        return question.send(this);
+    });
     
 
     robot.respond(/special/i, function(greeting) {
@@ -90,17 +93,17 @@ module.exports = function(robot) {
 
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        userWeight = parseInt(weightData.match[1]);
+        root.userWeight = parseInt(weightData.match[1]);
 
         return weightData.send(userWeight + 'lbs');
     });
     robot.respond(/Foot: (.*)/i, function(footData) {
-        userFoot = parseInt(footData.match[1]);
+        root.userFoot = parseInt(footData.match[1]);
 
         return footData.send(userFoot + ' foot');
     });
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        userInch = parseInt(inchData.match[1]);
+        root.userInch = parseInt(inchData.match[1]);
 
         return inchData.send(userInch + ' inch');
     });
@@ -112,15 +115,15 @@ module.exports = function(robot) {
 
     robot.respond(/BMI?/, function(response) {
    
-        if(userWeight === undefined || userFoot === undefined || userInch){
+        if(root.userWeight === undefined || root.userFoot === undefined || root.userInch){
             return response.send("I do not have variables tye... ;-( ");
         }
 
-        var foot = userFoot;
-        var inch = userInch;
-        var lbs = userWeight;
+        var foot = root.userFoot;
+        var inch = root.userInch;
+        var lbs = root.userWeight;
 
-        var allInches = userFoot * 12 + inch; 
+        var allInches = root.userFoot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
