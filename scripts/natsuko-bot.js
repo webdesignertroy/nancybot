@@ -88,8 +88,6 @@ module.exports = function(robot) {
     });
     
 
-
-
     robot.respond(/Weight: (.*)/i, function(weightData) {
         userWeight = parseInt(weightData.match[1]);
 
@@ -114,7 +112,7 @@ module.exports = function(robot) {
     robot.respond(/BMI?/, function(response) {
    
         if(userWeight === undefined || userFoot === undefined || userInch == undefined){
-            return response.send("I do not have variables tye... ;-( ");
+            return response.send("I do not have variables yet... ;-( ");
         }
 
         var foot = userFoot;
@@ -133,13 +131,13 @@ module.exports = function(robot) {
         var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
 
         if (BMI <= 18.5) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + foot + inch + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as underweight.' + foot +"feet" + inch + "inch " + lbs + "lbs");
         } else if (BMI > 18.5 && BMI < 25) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' +foot + inch + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as normal weight.' + foot +"feet" + inch + "inch " + lbs + "lbs");
         } else if (BMI > 25 && BMI < 30) {
-            return response.send('Your BMI is ' + BMI + '. You are considered as overweight.' + foot + inch + lbs);     
+            return response.send('Your BMI is ' + BMI + '. You are considered as overweight.' + foot +"feet" + inch + "inch " + lbs + "lbs");     
         } else {
-            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
+            return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' + foot +"feet" + inch + "inch " + lbs + "lbs");
         }
         
     });
