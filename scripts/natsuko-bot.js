@@ -73,12 +73,32 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
-    var root;
-    root = (typeof exports !== "undefined" && exports !== null) ? exports : this;
-    
-    root.userWeight;
-    root.userFoot;
-    root.userInch;
+    return robot.respond(*,function(query){
+        this.userWeight;
+        this.userFoot;
+        this.userInch;
+
+        if (query == /Weight: (.*)/i) {
+            this.userWeight = parseInt(query.match[1];
+        } else if (query == /Foot: (.*)/i) {
+            this.userFoot = parseInt(query.match[1];
+
+        } else if (query == /Inch: (.*)/i ) {
+            this.userInch = parseInt(query.match[1];
+        } else if(query !== /status/i) {
+            return query.send( this.userWeight, this.userFoot, this.userInch);
+        } else if(query === /BMI/i){
+            return query.send("calculating");
+        } else {
+            return query.send("sorry, I do not understand you");
+        }
+
+    });
+/*
+
+    userWeight;
+    userFoot;
+    userInch;
 
     robot.respond(/who/i, function(question){
         return question.send(this);
@@ -93,37 +113,37 @@ module.exports = function(robot) {
 
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        root.userWeight = parseInt(weightData.match[1]);
+        userWeight = parseInt(weightData.match[1]);
 
         return weightData.send(userWeight + 'lbs');
     });
     robot.respond(/Foot: (.*)/i, function(footData) {
-        root.userFoot = parseInt(footData.match[1]);
+        userFoot = parseInt(footData.match[1]);
 
         return footData.send(userFoot + ' foot');
     });
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        root.userInch = parseInt(inchData.match[1]);
+        userInch = parseInt(inchData.match[1]);
 
         return inchData.send(userInch + ' inch');
     });
 
-    /*var foot = userFoot;
+    var foot = userFoot;
     var inch = userInch;
-    var lbs = userWeight;*/
-
-
+    var lbs = userWeight;
+*/
+/*
     robot.respond(/BMI?/, function(response) {
    
-        if(root.userWeight === undefined || root.userFoot === undefined || root.userInch){
+        if(userWeight === undefined || userFoot === undefined || userInch){
             return response.send("I do not have variables tye... ;-( ");
         }
 
-        var foot = root.userFoot;
-        var inch = root.userInch;
-        var lbs = root.userWeight;
+        var foot = userFoot;
+        var inch = userInch;
+        var lbs = userWeight;
 
-        var allInches = root.userFoot * 12 + inch; 
+        var allInches = userFoot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
@@ -144,7 +164,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
         }
         
-    });
+    });*/
 
 }
 
