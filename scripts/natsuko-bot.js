@@ -73,9 +73,12 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
+    userWeight;
+    userFoot;
+    userInch;
 
-    robot.respond(/who/i,function(r){
-        return r.send(robot, '  : ', this);
+    robot.respond(/who/i,function(question){
+        return r.send(this);
     });
     
 
@@ -83,25 +86,23 @@ module.exports = function(robot) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    this.userWeight;
-    this.userFoot;
-    this.userInch;
+
 
 
     robot.respond(/Weight: (.*)/i, function(weightData) {
-        this.userWeight = parseInt(weightData.match[1]);
+        userWeight = parseInt(weightData.match[1]);
 
-        return weightData.send(this.userWeight + 'lbs');
+        return weightData.send(userWeight + 'lbs');
     });
     robot.respond(/Foot: (.*)/i, function(footData) {
-        this.userFoot = parseInt(footData.match[1]);
+        userFoot = parseInt(footData.match[1]);
 
-        return footData.send(this.userFoot + ' foot');
+        return footData.send(userFoot + ' foot');
     });
     robot.respond(/Inch: (.*)/i, function(inchData) {
-        this.userInch = parseInt(inchData.match[1]);
+        userInch = parseInt(inchData.match[1]);
 
-        return inchData.send(this.userInch + ' inch');
+        return inchData.send(userInch + ' inch');
     });
 
     /*var foot = userFoot;
@@ -111,13 +112,13 @@ module.exports = function(robot) {
 
     robot.respond(/BMI?/, function(response) {
    
-        if(this.userWeight === undefined || this.userFoot === undefined || this.userInch){
+        if(userWeight === undefined || userFoot === undefined || userInch){
             return response.send("I do not have variables tye... ;-( ");
         }
 
-        var foot = this.userFoot;
-        var inch = this.userInch;
-        var lbs = this.userWeight;
+        var foot = userFoot;
+        var inch = userInch;
+        var lbs = userWeight;
 
         var allInches = this.userFoot * 12 + inch; 
 
