@@ -74,36 +74,50 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
+    robot.respond(/who/i,function(r){
+        r.send(robot);
+    });
     
 
     robot.respond(/special/i, function(greeting) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
     })
     
-    var userWeight = robot.respond(/Weight: (.*)/i, function(weightData) {
-        var userWeight = parseInt(weightData.match[1]);
+    var userWeight, userFoot, userInch;
+
+
+    robot.respond(/Weight: (.*)/i, function(weightData) {
+        userWeight = parseInt(weightData.match[1]);
 
         return weightData.send(userWeight + 'lbs');
     });
-    var userFoot = robot.respond(/Foot: (.*)/i, function(footData) {
-        var userFoot = parseInt(footData.match[1]);
+    robot.respond(/Foot: (.*)/i, function(footData) {
+        userFoot = parseInt(footData.match[1]);
 
         return footData.send(userFoot + ' foot');
     });
-    var userInch = robot.respond(/Inch: (.*)/i, function(inchData) {
-        var userInch = parseInt(inchData.match[1]);
+    robot.respond(/Inch: (.*)/i, function(inchData) {
+        userInch = parseInt(inchData.match[1]);
 
         return inchData.send(userInch + ' inch');
     });
 
-    var foot = userFoot;
+    /*var foot = userFoot;
     var inch = userInch;
-    var lbs = userWeight;
+    var lbs = userWeight;*/
 
 
     robot.respond(/BMI?/, function(response) {
+   
+        if(userWeight === undefined || userFoot === undefined || userInch){
+            return response.send("please complete hogehoge");
+        }
 
-        var allInches = foot * 12 + inch; 
+        var foot = userFoot;
+        var inch = userInch;
+        var lbs = userWeight;
+
+        var allInches = userFoot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
@@ -124,7 +138,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
         }
         
-    })
+    });
 
 }
 
