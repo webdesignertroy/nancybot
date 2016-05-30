@@ -74,13 +74,12 @@ bot.hear(/Hello!/, function(res) {
 
 module.exports = function(robot) {
 
-
     var userWeight;
     var userFoot;
     var userInch;
 
     robot.respond(/who/i, function(question){
-        return question.send(this);
+        return question.send(robot.toString());
     });
     
 
