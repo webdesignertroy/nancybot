@@ -73,7 +73,7 @@ bot.hear(/Hello!/, function(res) {
 
 
 module.exports = function(robot) {
-    robot.respond(*,function(query){
+    /*robot.respond(*,function(query){
         this.userWeight;
         this.userFoot;
         this.userInch;
@@ -93,8 +93,8 @@ module.exports = function(robot) {
             return query.send("sorry, I do not understand you");
         }
 
-    });
-/*
+    });*/
+
 
     userWeight;
     userFoot;
@@ -128,11 +128,11 @@ module.exports = function(robot) {
         return inchData.send(userInch + ' inch');
     });
 
-    var foot = userFoot;
+    /*var foot = userFoot;
     var inch = userInch;
-    var lbs = userWeight;
-*/
-/*
+    var lbs = userWeight;*/
+
+
     robot.respond(/BMI?/, function(response) {
    
         if(userWeight === undefined || userFoot === undefined || userInch){
@@ -164,7 +164,7 @@ module.exports = function(robot) {
             return response.send('Your BMI is ' + BMI + '. You are considered as obesity.' +foot + inch + lbs);
         }
         
-    });*/
+    });
 
 }
 
