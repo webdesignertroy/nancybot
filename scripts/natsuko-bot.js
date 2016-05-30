@@ -77,14 +77,14 @@ module.exports = function(robot) {
     userFoot;
     userInch;
 
-    robot.respond(/who/i,function(question){
+    /*robot.respond(/who/i,function(question){
         return r.send(this);
-    });
+    });*/
     
 
     robot.respond(/special/i, function(greeting) {
         return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
-    })
+    });
     
 
 
@@ -120,7 +120,7 @@ module.exports = function(robot) {
         var inch = userInch;
         var lbs = userWeight;
 
-        var allInches = this.userFoot * 12 + inch; 
+        var allInches = userFoot * 12 + inch; 
 
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
