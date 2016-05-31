@@ -78,13 +78,8 @@ module.exports = function(robot) {
     var userFoot;
     var userInch;
 
-    robot.respond(/who/i, function(question){
-        return question.send(robot.toString());
-    });
-    
-
     robot.respond(/special/i, function(greeting) {
-        return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format. \nWeight: xx Foot: xx Inch: xx');
+        return greeting.send('Hello, I can help you stay healthy. Please enter your weight and height in this format one by one. \nWeight: xx \nFoot: xx \nInch: xx');
     });
     
 
@@ -103,10 +98,6 @@ module.exports = function(robot) {
 
         return inchData.send(userInch + ' inch');
     });
-
-    /*var foot = userFoot;
-    var inch = userInch;
-    var lbs = userWeight;*/
 
 
     robot.respond(/BMI?/, function(response) {
