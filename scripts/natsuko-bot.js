@@ -110,13 +110,11 @@ module.exports = function(robot) {
         var inch = userInch;
         var lbs = userWeight;
 
-        var allInches = userFoot * 12 + inch; 
-
         //var weight = lbs * .45; // Needed for metric conversion 
         var weight = lbs * 703;
 
         //var height = allInches * .025; // Converting to meter and needed for metric conversion
-        var height = allInches;
+        var height = userFoot * 12 + inch; // Converting height in inches
 
         var rawBMI = weight / (height * height)
         var BMI = Math.floor(rawBMI * 10) / 10; // Decimal rounding
